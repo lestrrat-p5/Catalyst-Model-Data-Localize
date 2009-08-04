@@ -1,5 +1,3 @@
-# $Id: Localize.pm 33133 2009-05-07 05:38:54Z daisuke $
-
 package Catalyst::Plugin::Data::Localize;
 use strict;
 use warnings;
@@ -20,7 +18,9 @@ sub setup {
 sub localize {
     my $self = shift;
     my $model = $self->localize_model;
-    $self->model($model)->localize(@_);
+    
+    $self->model($model)->localize(
+        @_ == 2 && ref $_[1] eq 'ARRAY' ? ($_[0], @{$_[1]}) : @_);
 }
 
 *loc = \&localize;
@@ -28,7 +28,8 @@ sub localize {
 sub languages {
     my $self = shift;
     my $model = $self->localize_model;
-    $self->model($model)->languages(@_);
+    $self->model($model)->languages(
+        @_ == 2 && ref $_[1] eq 'ARRAY' ? ($_[0], @{$_[1]}) : @_);
 }
 
 1;
