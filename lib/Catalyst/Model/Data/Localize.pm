@@ -1,5 +1,3 @@
-# $Id: Localize.pm 33134 2009-05-07 05:39:19Z daisuke $
-
 package Catalyst::Model::Data::Localize;
 use Moose;
 use Data::Localize;
@@ -11,7 +9,7 @@ __PACKAGE__->meta->make_immutable(inline_constructor => 0);
 
 no Moose;
 
-our $VERSION = '0.00005';
+our $VERSION = '0.00006';
 our $AUTHORITY = 'cpan:DMAKI';
 
 sub build_per_context_instance {
